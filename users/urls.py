@@ -1,15 +1,15 @@
 from django.urls import path
 from rest_framework import urlpatterns
 from rest_framework.urlpatterns import format_suffix_patterns
-from users.views import registration_view, api_root, logout
-from rest_framework.authtoken.views import obtain_auth_token
+from users import views
+from rest_framework.authtoken import views
 
 
 urlpatterns = [
-    path('', api_root, name='user-api-endpoint'),
-    path('register/', registration_view, name='register'),
-    path('login/', obtain_auth_token, name='login' ),
-    path('logout/', logout, name='logout'),
+    path('', views.api_root, name='user-api-endpoint'),
+    path('register/', views.registration_view, name='register'),
+    path('login/', views.obtain_auth_token, name='login' ),
+    path('logout/', views.logout, name='logout'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

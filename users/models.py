@@ -6,8 +6,21 @@ from rest_framework.authtoken.models import Token
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.conf import settings
+from rest_framework import authentication
 
 # Create your models here.
+
+class BearerAuthentication(authentication.TokenAuthentication):
+    """
+    Simple token based authentication
+
+    Client authenticate by passing the token key in the Authorization
+    HTTP header prepending keyword bearer before it. For example:
+
+    Authorization: Bearer 8bba67647313194787f75085dd0b3165a6381068
+    """
+    keyword = 'Bearer'
+    
 
 class User(AbstractBaseUser):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False) #universally unique identifiers

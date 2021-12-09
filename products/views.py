@@ -16,7 +16,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
     filter_fields = ['name','subcategories__name']
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
 class SubcategoryViewSet(viewsets.ModelViewSet):
     queryset = Subcategory.objects.all()
