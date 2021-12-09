@@ -9,6 +9,7 @@ from rest_framework.reverse import reverse
 
 # Create your views here.
 
+#user registration
 @api_view(['POST'])
 def registration_view(request, format=None):
     #user registration
@@ -24,12 +25,16 @@ def registration_view(request, format=None):
             return Response(data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
+#user logout
 @api_view(['POST'])
 def logout(request, format=None):
     #user logout
     request.user.auth_token.delete() #deletes token
     return Response(status=status.HTTP_200_OK)
 
+
+#create api endpoint for users application
 @api_view(['GET'])
 def api_root(request, format=None):
     return Response({
