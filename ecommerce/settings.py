@@ -42,10 +42,10 @@ INSTALLED_APPS = [
     'users',
     'rest_framework',
     'rest_framework.authtoken',
+    'rest_framework_simplejwt', #to use localizations/translations
     'django_filters',
     'products',
     'corsheaders',
-    'rest_auth',
 ]
 
 REST_FRAMEWORK = {
