@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ecommerce
+  description: Ecommerce Service
+spec:
+  type: service
+  lifecycle: development
+  owner: ecommerce-team
+  system: ecommerce
+  providesApis:
+    - ecommerce-api
